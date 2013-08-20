@@ -89,7 +89,7 @@ final class AmountPrinterParser implements MoneyPrinter, MoneyParser, Serializab
             if (decPoint >= 0 || activeStyle.isForcedDecimalPoint()) {
                 appendable.append(activeStyle.getDecimalPointCharacter());
             }
-            if (activeStyle.getGroupingStyle() == GroupingStyle.BEFORE_DECIMAL_POINT) {
+            if (activeStyle.getGroupingStyle() == GroupingStyle.BEFORE_DECIMAL_POINT && afterDecPoint > 0) {
                 appendable.append(str.substring(afterDecPoint));
             } else {
                 for (int i = 0; i < post; i++) {
